@@ -1086,7 +1086,7 @@ function Contact({ lang }: { lang: Lang }) {
     setState("sending");
     try {
       // Replace with your preferred form handler, e.g. formsubmit.co or Resend
-      await fetch("https://formsubmit.co/ajax/contato@nextplatform.io", {
+      await fetch("https://formsubmit.co/ajax/gersonm@nextdigitalplatform.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({ ...fields, _subject: `NextPlatform — Contacto de ${fields.company}` }),
