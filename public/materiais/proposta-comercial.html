@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial — NextDigital Platform</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #0000ff;
+    --blue-light: #3333ff;
+    --navy: #0d0e17;
+    --text: #1a1a2e;
+    --muted: #5a5a7a;
+    --border: #e0e0f0;
+    --bg-soft: #f7f7fd;
+    --bg-accent: #f0f0ff;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #fff;
+    color: var(--text);
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+
+  /* ── Page ── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 16px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  @media print {
+    body { margin: 0; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+    .no-print { display: none; }
+  }
+
+  /* ── Print button ── */
+  .print-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,255,0.4);
+  }
+  .print-btn:hover { background: var(--blue-light); }
+
+  /* ── Typography ── */
+  h1 { font-size: 28pt; font-weight: 800; line-height: 1.15; }
+  h2 { font-size: 16pt; font-weight: 700; }
+  h3 { font-size: 12pt; font-weight: 700; }
+  p { margin-bottom: 8px; color: var(--muted); }
+
+  /* ── Cover Page ── */
+  .cover {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .cover-top {
+    padding: 48px 56px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--blue);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-icon svg { width: 24px; height: 24px; }
+
+  .logo-name {
+    font-size: 15pt;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #fff;
+  }
+
+  .logo-name span { color: var(--blue); }
+
+  .cover-badge {
+    background: rgba(0,0,255,0.2);
+    border: 1px solid rgba(0,0,255,0.4);
+    color: #8888ff;
+    font-size: 9pt;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .cover-hero {
+    padding: 60px 56px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cover-label {
+    font-size: 9pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(0,0,255,0.8);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cover-label::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--blue);
+  }
+
+  .cover h1 {
+    color: #fff;
+    font-size: 30pt;
+    max-width: 480px;
+    margin-bottom: 24px;
+  }
+
+  .cover h1 span { color: var(--blue); }
+
+  .cover-subtitle {
+    color: rgba(255,255,255,0.55);
+    font-size: 12pt;
+    max-width: 400px;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  .cover-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--blue);
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+
+  .cover-meta-row {
+    display: flex;
+    gap: 48px;
+  }
+
+  .cover-meta-item label {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.35);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item span {
+    font-size: 10pt;
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+  }
+
+  .cover-footer {
+    background: rgba(0,0,0,0.3);
+    padding: 24px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .cover-footer-text {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .cover-footer-contact {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── Section pages ── */
+  .section-page {
+    padding: 52px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 36px;
+  }
+
+  .page-header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .page-header-logo .logo-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+
+  .page-header-logo .logo-icon svg { width: 16px; height: 16px; }
+
+  .page-header-logo-name {
+    font-size: 11pt;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .page-header-logo-name span { color: var(--blue); }
+
+  .page-header-meta {
+    font-size: 8.5pt;
+    color: var(--muted);
+  }
+
+  .section-label {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--blue);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--blue);
+  }
+
+  .section-title {
+    font-size: 20pt;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .section-intro {
+    font-size: 11pt;
+    color: var(--muted);
+    max-width: 500px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  /* ── Cards ── */
+  .card-grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .card-grid-2 { grid-template-columns: 1fr 1fr; }
+  .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .card {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .card-blue {
+    background: var(--bg-accent);
+    border-color: rgba(0,0,255,0.15);
+  }
+
+  .card-dark {
+    background: var(--navy);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+  }
+
+  .card-icon svg { width: 18px; height: 18px; }
+
+  .card h3 { margin-bottom: 6px; font-size: 11pt; color: var(--text); }
+  .card-dark h3 { color: #fff; }
+  .card p { margin: 0; font-size: 9.5pt; line-height: 1.6; }
+
+  /* ── Highlight box ── */
+  .highlight-box {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 28px 32px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .highlight-box h2 {
+    color: #fff;
+    font-size: 14pt;
+    margin-bottom: 10px;
+  }
+
+  .highlight-box p {
+    color: rgba(255,255,255,0.65);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* ── Steps ── */
+  .steps { display: flex; flex-direction: column; gap: 16px; }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 11pt;
+    flex-shrink: 0;
+  }
+
+  .step-content { flex: 1; padding-top: 4px; }
+  .step-content h3 { font-size: 10.5pt; margin-bottom: 4px; }
+  .step-content p { font-size: 9.5pt; margin: 0; }
+
+  /* ── Table ── */
+  .scope-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+  }
+
+  .scope-table th {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .scope-table th:first-child { border-radius: 8px 0 0 0; }
+  .scope-table th:last-child { border-radius: 0 8px 0 0; }
+
+  .scope-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  .scope-table tr:nth-child(even) td { background: var(--bg-soft); }
+
+  .scope-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+  .scope-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 8pt;
+    font-weight: 600;
+  }
+
+  .badge-blue { background: rgba(0,0,255,0.1); color: var(--blue); }
+  .badge-green { background: rgba(0,160,80,0.1); color: #008040; }
+  .badge-amber { background: rgba(200,120,0,0.1); color: #c07800; }
+
+  /* ── Investment ── */
+  .investment-box {
+    background: var(--bg-accent);
+    border: 2px solid rgba(0,0,255,0.2);
+    border-radius: 12px;
+    padding: 28px 32px;
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  .investment-box .inv-label {
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .investment-box .inv-value {
+    font-size: 24pt;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+
+  .investment-box .inv-sub {
+    font-size: 9.5pt;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .investment-row {
+    display: flex;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .inv-item {
+    flex: 1;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+  }
+
+  .inv-item .inv-item-label {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .inv-item .inv-item-value {
+    font-size: 14pt;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .inv-item .inv-item-sub {
+    font-size: 8.5pt;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* ── Checklist ── */
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 10pt;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    background: rgba(0,0,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .check-icon svg { width: 10px; height: 10px; }
+
+  /* ── Timeline ── */
+  .timeline { display: flex; gap: 0; margin: 24px 0; }
+
+  .tl-item {
+    flex: 1;
+    position: relative;
+    padding-top: 32px;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border);
+  }
+
+  .tl-item:first-child::before { left: 50%; }
+  .tl-item:last-child::before { right: 50%; }
+
+  .tl-dot {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    background: var(--blue);
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+
+  .tl-week {
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .tl-label {
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .tl-desc {
+    font-size: 8pt;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ── KMM ── */
+  .kmm-row {
+    display: flex;
+    gap: 8px;
+    margin: 20px 0;
+  }
+
+  .kmm-level {
+    flex: 1;
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    position: relative;
+  }
+
+  .kmm-level::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 14pt;
+    z-index: 2;
+  }
+
+  .kmm-level:last-child::after { display: none; }
+
+  .kmm-l1 { background: rgba(0,0,255,0.06); border: 1px solid rgba(0,0,255,0.15); }
+  .kmm-l2 { background: rgba(0,0,255,0.12); border: 1px solid rgba(0,0,255,0.25); }
+  .kmm-l3 { background: var(--blue); }
+
+  .kmm-level .kmm-num {
+    font-size: 22pt;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .kmm-l1 .kmm-num, .kmm-l2 .kmm-num { color: var(--blue); }
+  .kmm-l3 .kmm-num { color: #fff; }
+
+  .kmm-level .kmm-name {
+    font-size: 9pt;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .kmm-l1 .kmm-name, .kmm-l2 .kmm-name { color: var(--text); }
+  .kmm-l3 .kmm-name { color: #fff; }
+
+  .kmm-level .kmm-desc {
+    font-size: 8pt;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .kmm-l1 .kmm-desc, .kmm-l2 .kmm-desc { color: var(--muted); }
+  .kmm-l3 .kmm-desc { color: rgba(255,255,255,0.8); }
+
+  /* ── Next steps ── */
+  .next-steps {
+    display: flex;
+    gap: 14px;
+    margin-top: 10px;
+  }
+
+  .ns-item {
+    flex: 1;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--blue);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .ns-item .ns-num {
+    font-size: 22pt;
+    font-weight: 900;
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .ns-item h3 { font-size: 10pt; margin-bottom: 6px; }
+  .ns-item p { font-size: 8.5pt; margin: 0; }
+
+  /* ── CTA footer page ── */
+  .cta-page {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 56px;
+  }
+
+  .cta-page .cta-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--blue);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+  }
+
+  .cta-page .cta-icon svg { width: 32px; height: 32px; }
+
+  .cta-page h2 {
+    font-size: 22pt;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .cta-page p {
+    color: rgba(255,255,255,0.55);
+    font-size: 11.5pt;
+    max-width: 440px;
+    margin: 0 auto 40px;
+  }
+
+  .cta-contacts {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+
+  .cta-contact-item {
+    text-align: center;
+  }
+
+  .cta-contact-item .cti-label {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 6px;
+  }
+
+  .cta-contact-item .cti-value {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .cta-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+    align-self: stretch;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    padding: 14px 40px;
+    border-radius: 8px;
+    font-size: 11pt;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+
+  .cta-page-footer {
+    position: absolute;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ── Two-col layout ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .two-col-65 { display: grid; grid-template-columns: 1.7fr 1fr; gap: 24px; }
+
+  /* ── Divider ── */
+  .divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  /* ── Page number ── */
+  .page-num {
+    position: absolute;
+    bottom: 24px;
+    right: 40px;
+    font-size: 8pt;
+    color: var(--muted);
+  }
+
+  .page-num-light {
+    position: absolute;
+    bottom: 24px;
+    right: 40px;
+    font-size: 8pt;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .mt-12 { margin-top: 12px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+
+  /* Confidential tag */
+  .confidential {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.45);
+    font-size: 8pt;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Salvar como PDF</button>
+
+<!-- ══════════════════════════════════
+     PAGE 1 — COVER
+══════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="logo-block">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 6 L8 12 L2 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6 L22 12 L16 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="logo-name">Next<span>Digital</span> Platform</span>
+    </div>
+    <span class="confidential">Confidencial</span>
+  </div>
+
+  <div class="cover-hero">
+    <div class="cover-label">Proposta Comercial</div>
+    <h1>Transformação Digital<br>Inteligente para<br><span>Empresas B2B</span></h1>
+    <div class="cover-divider"></div>
+    <p class="cover-subtitle">Esta proposta apresenta nossa abordagem personalizada para acelerar sua maturidade digital com tecnologia de ponta, processos eficientes e resultados mensuráveis.</p>
+    <div class="cover-meta-row" style="margin-top: 36px;">
+      <div class="cover-meta-item">
+        <label>Preparado para</label>
+        <span>[Nome da Empresa]</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Data</label>
+        <span>[Data]</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Válido por</label>
+        <span>30 dias</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Versão</label>
+        <span>1.0</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-text">nextdigitalplatform.com</div>
+    <div class="cover-footer-contact">gersonm@nextdigitalplatform.com</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 2 — UNDERSTANDING THE CHALLENGE
+══════════════════════════════════ -->
+<div class="page section-page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 6 L8 12 L2 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6 L22 12 L16 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="page-header-logo-name">Next<span>Digital</span> Platform</span>
+    </div>
+    <span class="page-header-meta">Proposta Comercial · Confidencial</span>
+  </div>
+
+  <div class="section-label">01 · Entendimento do Desafio</div>
+  <div class="section-title">O que identificamos<br>no seu contexto</div>
+  <p class="section-intro">Com base nas conversas iniciais e em nossa experiência com empresas similares, mapeamos os principais desafios que impactam diretamente seus resultados.</p>
+
+  <div class="card-grid card-grid-2">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+        </svg>
+      </div>
+      <h3>Processos manuais e lentos</h3>
+      <p>Tarefas repetitivas consomem tempo valioso da equipe, reduzindo capacidade de foco em atividades estratégicas e crescimento.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <path d="M18 20V10M12 20V4M6 20v-6"/>
+        </svg>
+      </div>
+      <h3>Baixa visibilidade de dados</h3>
+      <p>Decisões baseadas em intuição em vez de dados — falta de dashboards, métricas e inteligência em tempo real para gestão eficaz.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
+        </svg>
+      </div>
+      <h3>Sistemas desconectados</h3>
+      <p>Múltiplas ferramentas sem integração geram retrabalho, informações duplicadas e perda de produtividade entre departamentos.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <h3>Dificuldade de escalar</h3>
+      <p>Estrutura tecnológica limitada impede crescimento sustentável — cada novo cliente ou projeto gera complexidade desproporcional.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box mt-24">
+    <h2>Impacto no negócio</h2>
+    <p>Empresas com baixa maturidade digital perdem em média <strong style="color:#8888ff">23% de eficiência operacional</strong> e têm <strong style="color:#8888ff">40% mais dificuldade</strong> em atrair e reter talentos qualificados. A janela de oportunidade para transformação está aberta — mas não por muito tempo.</p>
+  </div>
+
+  <span class="page-num">2</span>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 3 — VALUE PROPOSITION
+══════════════════════════════════ -->
+<div class="page section-page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 6 L8 12 L2 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6 L22 12 L16 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="page-header-logo-name">Next<span>Digital</span> Platform</span>
+    </div>
+    <span class="page-header-meta">Proposta Comercial · Confidencial</span>
+  </div>
+
+  <div class="section-label">02 · Nossa Proposta de Valor</div>
+  <div class="section-title">Como vamos resolver<br>esses desafios</div>
+  <p class="section-intro">A NextDigital Platform oferece uma solução integrada que combina estratégia, tecnologia e execução — entregando resultados reais em tempo recorde.</p>
+
+  <div class="two-col">
+    <div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Diagnóstico de Maturidade Digital</h3>
+            <p>Avaliação completa da situação atual usando nossa metodologia KMM — mapeando gaps, oportunidades e prioridades estratégicas.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Roadmap Personalizado</h3>
+            <p>Plano de transformação em fases com objetivos claros, KPIs mensuráveis e cronograma realista alinhado ao seu orçamento.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Implementação Ágil</h3>
+            <p>Entrega em sprints de 2 semanas com resultados tangíveis desde o primeiro mês — sem longos projetos sem entrega visível.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Monitoramento e Evolução</h3>
+            <p>Acompanhamento contínuo dos resultados, ajustes de rota e evolução da solução conforme o negócio cresce.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="card card-blue">
+        <h3 style="font-size: 22pt; font-weight: 900; color: var(--blue); line-height: 1;">+40%</h3>
+        <h3 style="margin-bottom: 4px;">Eficiência Operacional</h3>
+        <p>Redução de processos manuais e retrabalho</p>
+      </div>
+      <div class="card card-blue">
+        <h3 style="font-size: 22pt; font-weight: 900; color: var(--blue); line-height: 1;">3×</h3>
+        <h3 style="margin-bottom: 4px;">Velocidade de Entrega</h3>
+        <p>Produtos e funcionalidades no mercado mais rápido</p>
+      </div>
+      <div class="card card-blue">
+        <h3 style="font-size: 22pt; font-weight: 900; color: var(--blue); line-height: 1;">90 dias</h3>
+        <h3 style="margin-bottom: 4px;">Primeiro Resultado</h3>
+        <p>ROI mensurável no primeiro trimestre</p>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-num">3</span>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 4 — SCOPE OF WORK
+══════════════════════════════════ -->
+<div class="page section-page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 6 L8 12 L2 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6 L22 12 L16 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="page-header-logo-name">Next<span>Digital</span> Platform</span>
+    </div>
+    <span class="page-header-meta">Proposta Comercial · Confidencial</span>
+  </div>
+
+  <div class="section-label">03 · Escopo de Trabalho</div>
+  <div class="section-title">O que está incluído<br>nesta proposta</div>
+
+  <table class="scope-table">
+    <thead>
+      <tr>
+        <th style="width: 30%">Entregável</th>
+        <th style="width: 38%">Descrição</th>
+        <th style="width: 16%">Prazo Est.</th>
+        <th style="width: 16%">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Diagnóstico KMM</strong></td>
+        <td>Avaliação de maturidade digital em 7 dimensões com relatório executivo e roadmap recomendado</td>
+        <td>Semana 1–2</td>
+        <td><span class="badge badge-blue">Incluído</span></td>
+      </tr>
+      <tr>
+        <td><strong>Arquitetura de Solução</strong></td>
+        <td>Desenho técnico da solução, seleção de stack tecnológico e plano de implementação detalhado</td>
+        <td>Semana 2–3</td>
+        <td><span class="badge badge-blue">Incluído</span></td>
+      </tr>
+      <tr>
+        <td><strong>Desenvolvimento Fase 1</strong></td>
+        <td>Implementação das funcionalidades core conforme prioridades definidas no diagnóstico</td>
+        <td>Semana 3–8</td>
+        <td><span class="badge badge-blue">Incluído</span></td>
+      </tr>
+      <tr>
+        <td><strong>Integrações</strong></td>
+        <td>Conexão com sistemas existentes (ERP, CRM, APIs) e automação dos fluxos críticos</td>
+        <td>Semana 6–10</td>
+        <td><span class="badge badge-blue">Incluído</span></td>
+      </tr>
+      <tr>
+        <td><strong>Dashboard & Analytics</strong></td>
+        <td>Painel executivo com KPIs do negócio, métricas operacionais e relatórios automáticos</td>
+        <td>Semana 8–12</td>
+        <td><span class="badge badge-blue">Incluído</span></td>
+      </tr>
+      <tr>
+        <td><strong>Treinamento da Equipe</strong></td>
+        <td>Capacitação dos times para uso das novas ferramentas e adoção do novo modelo de trabalho</td>
+        <td>Semana 10–12</td>
+        <td><span class="badge badge-blue">Incluído</span></td>
+      </tr>
+      <tr>
+        <td><strong>Sustentação 90 dias</strong></td>
+        <td>Suporte pós-go-live, correções, otimizações e acompanhamento de métricas por 3 meses</td>
+        <td>Mês 4–6</td>
+        <td><span class="badge badge-green">Garantido</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card mt-16" style="background: #fff8e6; border-color: #f0d080; display: flex; gap: 16px; align-items: flex-start;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c07800" stroke-width="2" stroke-linecap="round" style="flex-shrink:0; margin-top:2px">
+      <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+    </svg>
+    <p style="margin:0; color: #7a5500; font-size: 9.5pt; line-height: 1.6;"><strong>Itens fora de escopo:</strong> Licenças de software de terceiros (ex: Salesforce, HubSpot), infraestrutura cloud além do plano contratado, e desenvolvimentos solicitados após aprovação do escopo final. Eventuais adicionais serão orçados separadamente com aprovação prévia.</p>
+  </div>
+
+  <span class="page-num">4</span>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 5 — METHODOLOGY KMM
+══════════════════════════════════ -->
+<div class="page section-page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 6 L8 12 L2 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6 L22 12 L16 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="page-header-logo-name">Next<span>Digital</span> Platform</span>
+    </div>
+    <span class="page-header-meta">Proposta Comercial · Confidencial</span>
+  </div>
+
+  <div class="section-label">04 · Metodologia</div>
+  <div class="section-title">KMM — Knowledge<br>Maturity Model</div>
+  <p class="section-intro" style="margin-bottom: 16px;">Nossa metodologia proprietária avalia e acelera a maturidade digital em 3 grandes dimensões, com um framework comprovado em empresas B2B de médio e grande porte.</p>
+
+  <div class="kmm-row">
+    <div class="kmm-level kmm-l1">
+      <div class="kmm-num">1</div>
+      <div class="kmm-name">Fundação Digital</div>
+      <p class="kmm-desc">Infraestrutura, segurança, processos básicos digitalizados e equipe capacitada para operar no ambiente digital.</p>
+    </div>
+    <div class="kmm-level kmm-l2">
+      <div class="kmm-num">2</div>
+      <div class="kmm-name">Inteligência de Dados</div>
+      <p class="kmm-desc">Coleta, análise e uso de dados para decisões. Automação de processos repetitivos. Integrações entre sistemas.</p>
+    </div>
+    <div class="kmm-level kmm-l3">
+      <div class="kmm-num">3</div>
+      <div class="kmm-name">Inovação Contínua</div>
+      <p class="kmm-desc">IA aplicada, produtos digitais, modelo de negócio data-driven e capacidade de adaptação rápida ao mercado.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="font-size: 10pt; font-weight: 700; color: var(--text); margin-bottom: 14px;">Cronograma de Implementação</div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Semana 1–2</div>
+      <div class="tl-label">Diagnóstico</div>
+      <div class="tl-desc">Avaliação KMM e alinhamento estratégico</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Semana 3–4</div>
+      <div class="tl-label">Arquitetura</div>
+      <div class="tl-desc">Roadmap técnico e aprovação do escopo</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Semana 5–8</div>
+      <div class="tl-label">Sprint 1</div>
+      <div class="tl-desc">Fundação digital e primeiras entregas</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Semana 9–12</div>
+      <div class="tl-label">Sprint 2</div>
+      <div class="tl-desc">Integrações, analytics e treinamento</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-week">Mês 4–6</div>
+      <div class="tl-label">Sustentação</div>
+      <div class="tl-desc">Monitoramento, otimização e evolução</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="font-size: 10pt; font-weight: 700; color: var(--text); margin-bottom: 14px;">Por que nossa abordagem é diferente</div>
+
+  <div class="card-grid card-grid-3">
+    <div class="card" style="padding: 16px;">
+      <div style="font-size: 9pt; font-weight: 700; color: var(--blue); margin-bottom: 4px;">DIAGNÓSTICO PRIMEIRO</div>
+      <p style="font-size: 8.5pt;">Não vendemos tecnologia — vendemos resultado. Qualquer solução começa com entendimento profundo do seu negócio.</p>
+    </div>
+    <div class="card" style="padding: 16px;">
+      <div style="font-size: 9pt; font-weight: 700; color: var(--blue); margin-bottom: 4px;">ENTREGA EM FASES</div>
+      <p style="font-size: 8.5pt;">Resultados tangíveis a cada 2 semanas. Nada de projetos longos sem entrega visível ou feedback.</p>
+    </div>
+    <div class="card" style="padding: 16px;">
+      <div style="font-size: 9pt; font-weight: 700; color: var(--blue); margin-bottom: 4px;">TIME DEDICADO</div>
+      <p style="font-size: 8.5pt;">Equipe multidisciplinar (tech + design + dados + estratégia) totalmente focada no seu projeto.</p>
+    </div>
+  </div>
+
+  <span class="page-num">5</span>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 6 — INVESTMENT
+══════════════════════════════════ -->
+<div class="page section-page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 6 L8 12 L2 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6 L22 12 L16 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="page-header-logo-name">Next<span>Digital</span> Platform</span>
+    </div>
+    <span class="page-header-meta">Proposta Comercial · Confidencial</span>
+  </div>
+
+  <div class="section-label">05 · Investimento</div>
+  <div class="section-title">Condições comerciais<br>desta proposta</div>
+
+  <div class="investment-box">
+    <div class="inv-label">Investimento Total do Projeto</div>
+    <div class="inv-value">A definir</div>
+    <p class="inv-sub">Valor personalizado conforme escopo final — apresentado após diagnóstico inicial gratuito</p>
+  </div>
+
+  <div class="investment-row">
+    <div class="inv-item">
+      <div class="inv-item-label">Diagnóstico KMM</div>
+      <div class="inv-item-value" style="color: #008040;">Gratuito</div>
+      <div class="inv-item-sub">Sem compromisso</div>
+    </div>
+    <div class="inv-item">
+      <div class="inv-item-label">Modelo de Contrato</div>
+      <div class="inv-item-value">Projeto</div>
+      <div class="inv-item-sub">ou Retainer mensal</div>
+    </div>
+    <div class="inv-item">
+      <div class="inv-item-label">Início do Projeto</div>
+      <div class="inv-item-value">7 dias</div>
+      <div class="inv-item-sub">após assinatura</div>
+    </div>
+    <div class="inv-item">
+      <div class="inv-item-label">Sustentação</div>
+      <div class="inv-item-value">90 dias</div>
+      <div class="inv-item-sub">incluída no contrato</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="two-col">
+    <div>
+      <div style="font-size: 10pt; font-weight: 700; color: var(--text); margin-bottom: 14px;">O que está incluído</div>
+      <ul class="checklist">
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#0000ff" stroke-width="2" stroke-linecap="round">
+              <path d="M2 6l3 3 5-5"/>
+            </svg>
+          </div>
+          Diagnóstico de maturidade KMM completo
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#0000ff" stroke-width="2" stroke-linecap="round">
+              <path d="M2 6l3 3 5-5"/>
+            </svg>
+          </div>
+          Desenvolvimento e implementação do escopo aprovado
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#0000ff" stroke-width="2" stroke-linecap="round">
+              <path d="M2 6l3 3 5-5"/>
+            </svg>
+          </div>
+          Integrações com sistemas atuais
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#0000ff" stroke-width="2" stroke-linecap="round">
+              <path d="M2 6l3 3 5-5"/>
+            </svg>
+          </div>
+          Dashboard executivo e relatórios automáticos
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#0000ff" stroke-width="2" stroke-linecap="round">
+              <path d="M2 6l3 3 5-5"/>
+            </svg>
+          </div>
+          Treinamento e documentação para equipe
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#0000ff" stroke-width="2" stroke-linecap="round">
+              <path d="M2 6l3 3 5-5"/>
+            </svg>
+          </div>
+          90 dias de sustentação pós-go-live
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size: 10pt; font-weight: 700; color: var(--text); margin-bottom: 14px;">Condições de pagamento</div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="card" style="padding: 14px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 9pt; font-weight: 700; color: var(--text);">Entrada</div>
+            <div style="font-size: 8.5pt; color: var(--muted);">Na assinatura do contrato</div>
+          </div>
+          <div style="font-size: 13pt; font-weight: 800; color: var(--blue);">30%</div>
+        </div>
+        <div class="card" style="padding: 14px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 9pt; font-weight: 700; color: var(--text);">Durante</div>
+            <div style="font-size: 8.5pt; color: var(--muted);">A cada entrega validada</div>
+          </div>
+          <div style="font-size: 13pt; font-weight: 800; color: var(--blue);">40%</div>
+        </div>
+        <div class="card" style="padding: 14px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 9pt; font-weight: 700; color: var(--text);">Go-live</div>
+            <div style="font-size: 8.5pt; color: var(--muted);">Na entrega final em produção</div>
+          </div>
+          <div style="font-size: 13pt; font-weight: 800; color: var(--blue);">30%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-num">6</span>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 7 — NEXT STEPS
+══════════════════════════════════ -->
+<div class="page section-page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 6 L8 12 L2 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6 L22 12 L16 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="page-header-logo-name">Next<span>Digital</span> Platform</span>
+    </div>
+    <span class="page-header-meta">Proposta Comercial · Confidencial</span>
+  </div>
+
+  <div class="section-label">06 · Próximos Passos</div>
+  <div class="section-title">Como avançamos<br>a partir daqui</div>
+  <p class="section-intro">O processo de onboarding da NextDigital é simples, rápido e sem burocracia. Do primeiro contato até o início do projeto em menos de 2 semanas.</p>
+
+  <div class="next-steps">
+    <div class="ns-item">
+      <div class="ns-num">01</div>
+      <h3>Reunião de Alinhamento</h3>
+      <p>Apresentação desta proposta, esclarecimento de dúvidas e validação do escopo com os stakeholders chave.</p>
+    </div>
+    <div class="ns-item">
+      <div class="ns-num">02</div>
+      <h3>Diagnóstico Gratuito</h3>
+      <p>Sessão de 2 horas com nossa equipe para avaliação KMM e entrega de relatório executivo sem custo.</p>
+    </div>
+    <div class="ns-item">
+      <div class="ns-num">03</div>
+      <h3>Proposta Final</h3>
+      <p>Com base no diagnóstico, apresentamos escopo detalhado, cronograma e investimento final personalizado.</p>
+    </div>
+    <div class="ns-item">
+      <div class="ns-num">04</div>
+      <h3>Assinatura e Kick-off</h3>
+      <p>Contrato assinado e kick-off do projeto em até 7 dias — com time alocado e sprint 1 já planejado.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box mt-24">
+    <h2>Por que agir agora?</h2>
+    <p>Cada mês sem transformação digital é um mês em que seus concorrentes ganham vantagem. Empresas que iniciaram sua transformação em 2023 já colhem resultados — <strong style="color:#8888ff">sua janela de vantagem competitiva está aberta agora.</strong> Nossa agenda de novos projetos tem disponibilidade limitada — garantir sua entrada no próximo ciclo significa iniciar o processo esta semana.</p>
+  </div>
+
+  <div class="card" style="background: var(--bg-accent); border-color: rgba(0,0,255,0.15); margin-top: 20px; display: flex; align-items: center; gap: 20px; padding: 18px 24px;">
+    <div style="flex: 1;">
+      <div style="font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 6px;">Proposta válida até</div>
+      <div style="font-size: 13pt; font-weight: 800; color: var(--text);">[Data + 30 dias]</div>
+      <div style="font-size: 8.5pt; color: var(--muted); margin-top: 2px;">Após esta data, os valores e condições podem ser revisados</div>
+    </div>
+    <div style="width: 1px; height: 50px; background: var(--border);"></div>
+    <div style="flex: 1; text-align: center;">
+      <div style="font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 6px;">Fale com nosso time</div>
+      <div style="font-size: 11pt; font-weight: 700; color: var(--text);">gersonm@nextdigitalplatform.com</div>
+      <div style="font-size: 9.5pt; color: var(--muted); margin-top: 2px;">nextdigitalplatform.com</div>
+    </div>
+  </div>
+
+  <span class="page-num">7</span>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 8 — CLOSING CTA
+══════════════════════════════════ -->
+<div class="page cta-page">
+  <div class="cta-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 6 L8 12 L2 18" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16 6 L22 12 L16 18" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <h2>Vamos construir o futuro<br>digital da sua empresa juntos?</h2>
+  <p>Estamos prontos para iniciar o diagnóstico gratuito e mostrar, na prática, como a NextDigital Platform pode transformar seus resultados.</p>
+
+  <div class="cta-contacts">
+    <div class="cta-contact-item">
+      <div class="cti-label">E-mail</div>
+      <div class="cti-value">gersonm@nextdigitalplatform.com</div>
+    </div>
+    <div class="cta-divider"></div>
+    <div class="cta-contact-item">
+      <div class="cti-label">Website</div>
+      <div class="cti-value">nextdigitalplatform.com</div>
+    </div>
+    <div class="cta-divider"></div>
+    <div class="cta-contact-item">
+      <div class="cti-label">Diagnóstico</div>
+      <div class="cti-value">Gratuito · Sem compromisso</div>
+    </div>
+  </div>
+
+  <a href="mailto:gersonm@nextdigitalplatform.com" class="cta-btn">Solicitar Diagnóstico Gratuito</a>
+
+  <div style="margin-top: 48px; padding: 20px 32px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; max-width: 500px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+      <div class="logo-icon" style="width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0;">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px;">
+          <path d="M2 6 L8 12 L2 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 6 L22 12 L16 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span style="font-size: 12pt; font-weight: 800; color: #fff;">NextDigital Platform</span>
+    </div>
+    <p style="color: rgba(255,255,255,0.4); font-size: 8.5pt; line-height: 1.6; margin: 0; text-align: left;">Transformando empresas B2B através de tecnologia inteligente, automação e estratégia digital. Metodologia KMM proprietária. Time especializado. Resultados mensuráveis.</p>
+  </div>
+
+  <div class="page-num-light">Documento Confidencial · NextDigital Platform · 8</div>
+</div>
+
+</body>
+</html>
