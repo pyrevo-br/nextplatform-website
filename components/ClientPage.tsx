@@ -561,13 +561,13 @@ function Nav({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
           <a href="#" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
             <LogoMark className="w-7 h-[18px] text-[#0000ff] transition-transform duration-200 group-hover:translate-x-0.5" />
             <span className="text-white font-bold text-[17px] tracking-tight">
-              Next<span className="text-[#555]">Platform</span>
+              Next<span className="text-[#7070a0]">Platform</span>
             </span>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
             {t.links.map((l) => (
-              <a key={l.href} href={l.href} className="text-[#888] hover:text-white text-sm font-medium transition-colors duration-150">
+              <a key={l.href} href={l.href} className="text-[#a0a0b8] hover:text-white text-sm font-medium transition-colors duration-150">
                 {l.label}
               </a>
             ))}
@@ -575,7 +575,7 @@ function Nav({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
 
           <div className="hidden md:flex items-center gap-3">
             {/* Language switcher */}
-            <div className="flex items-center gap-1 rounded-lg p-1" style={{ background: "#111", border: "1px solid #1e1e1e" }}>
+            <div className="flex items-center gap-1 rounded-lg p-1" style={{ background: "#191928", border: "1px solid #2a2a42" }}>
               <IconGlobe />
               {LANGS.map((l) => (
                 <button
@@ -617,7 +617,7 @@ function Nav({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
       <div
         className="md:hidden fixed inset-0 z-40 flex flex-col px-6 pt-20 pb-8 transition-all duration-300"
         style={{
-          background: "#0a0a0a",
+          background: "#0d0e17",
           opacity: open ? 1 : 0,
           pointerEvents: open ? "auto" : "none",
           transform: open ? "translateY(0)" : "translateY(-8px)",
@@ -626,7 +626,7 @@ function Nav({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
         <div className="flex-1 space-y-1 pt-4">
           {t.links.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)}
-              className="flex items-center justify-between text-[28px] font-bold text-[#555] hover:text-white py-4 border-b border-[#1a1a1a] transition-colors">
+              className="flex items-center justify-between text-[28px] font-bold text-[#7070a0] hover:text-white py-4 border-b border-[#1a1a1a] transition-colors">
               {l.label}
               <span className="text-[#333]"><IconArrowRight /></span>
             </a>
@@ -643,7 +643,7 @@ function Nav({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
                 style={{
                   background: lang === l.code ? "#0000ff" : "#111",
                   color: lang === l.code ? "#fff" : "#555",
-                  border: "1px solid #1e1e1e",
+                  border: "1px solid #2a2a42",
                 }}
               >
                 {l.label}
@@ -676,7 +676,7 @@ function HeroVisual({ lang }: { lang: Lang }) {
     <div className="relative">
       <div className="absolute inset-0 bg-[#0000ff] opacity-10 rounded-3xl blur-3xl scale-90" />
 
-      <div className="relative border border-[#222] rounded-2xl overflow-hidden" style={{ background: "#111" }}>
+      <div className="relative border border-[#222] rounded-2xl overflow-hidden" style={{ background: "#191928" }}>
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#1a1a1a]">
           <div className="flex items-center gap-2">
             <LogoMark className="w-5 h-3 text-[#0000ff]" />
@@ -694,7 +694,7 @@ function HeroVisual({ lang }: { lang: Lang }) {
               <div
                 className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-xs font-bold"
                 style={{
-                  background: s.done ? "#0000ff" : s.active ? "rgba(0,0,255,0.15)" : "#1a1a1a",
+                  background: s.done ? "#0000ff" : s.active ? "rgba(0,0,255,0.15)" : "#22223a",
                   color: s.done ? "#fff" : s.active ? "#0000ff" : "#444",
                   border: s.active ? "1px solid rgba(0,0,255,0.4)" : "1px solid transparent",
                 }}
@@ -705,35 +705,35 @@ function HeroVisual({ lang }: { lang: Lang }) {
                 {s.label}
               </span>
               {s.done && <span className="ml-auto text-[#0000ff] text-xs font-semibold">✓</span>}
-              {s.active && <span className="ml-auto text-[#888] text-xs">Today</span>}
+              {s.active && <span className="ml-auto text-[#a0a0b8] text-xs">Today</span>}
             </div>
           ))}
         </div>
 
-        <div className="px-5 py-4 border-t border-[#1a1a1a]" style={{ background: "#0d0d0d" }}>
+        <div className="px-5 py-4 border-t border-[#1a1a1a]" style={{ background: "#111220" }}>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-[#555] text-xs">{t.deliveryLabel}</p>
+              <p className="text-[#7070a0] text-xs">{t.deliveryLabel}</p>
               <p className="text-white text-sm font-bold mt-0.5">{t.deliveryVal}</p>
             </div>
             <div className="text-right">
-              <p className="text-[#555] text-xs">{t.methodLabel}</p>
+              <p className="text-[#7070a0] text-xs">{t.methodLabel}</p>
               <p className="text-[#0000ff] text-sm font-bold mt-0.5">{t.methodVal}</p>
             </div>
           </div>
           <div className="mt-3 h-1.5 rounded-full bg-[#1a1a1a] overflow-hidden">
             <div className="h-full rounded-full bg-[#0000ff]" style={{ width: "72%" }} />
           </div>
-          <p className="text-[#555] text-xs mt-1.5">{t.progress}</p>
+          <p className="text-[#7070a0] text-xs mt-1.5">{t.progress}</p>
         </div>
       </div>
 
       <div
         className="absolute -bottom-4 -right-4 flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-[#222] text-sm font-bold"
-        style={{ background: "#111" }}
+        style={{ background: "#191928" }}
       >
         <span className="text-2xl font-black text-white">1–2</span>
-        <span className="text-[#666] text-xs leading-tight">
+        <span className="text-[#8888a0] text-xs leading-tight">
           {lang === "en" ? "weeks to\ndeliver" : "semanas\np/ entrega"}
         </span>
       </div>
@@ -747,14 +747,16 @@ function Hero({ lang }: { lang: Lang }) {
   const t = T[lang].hero;
 
   return (
-    <section className="min-h-[100dvh] flex flex-col justify-center relative overflow-hidden" style={{ background: "#0a0a0a" }}>
+    <section className="min-h-[100dvh] flex flex-col justify-center relative overflow-hidden" style={{ background: "#0d0e17" }}>
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full opacity-[0.07]"
-          style={{ background: "#0000ff", filter: "blur(120px)" }} />
-        <div className="absolute bottom-0 left-1/3 w-[300px] h-[300px] rounded-full opacity-[0.04]"
-          style={{ background: "#0000ff", filter: "blur(80px)" }} />
-        <div className="absolute inset-0 opacity-[0.12]"
-          style={{ backgroundImage: "radial-gradient(circle, #333 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full opacity-[0.14]"
+          style={{ background: "#0000ff", filter: "blur(130px)" }} />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full opacity-[0.08]"
+          style={{ background: "#3333ff", filter: "blur(100px)" }} />
+        <div className="absolute top-0 left-0 w-[300px] h-[300px] rounded-full opacity-[0.05]"
+          style={{ background: "#6644ff", filter: "blur(90px)" }} />
+        <div className="absolute inset-0 opacity-[0.15]"
+          style={{ backgroundImage: "radial-gradient(circle, #444 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
       </div>
 
       <div className="relative max-w-[1200px] mx-auto px-6 lg:px-10 w-full pt-24 pb-16 sm:pt-28 sm:pb-20">
@@ -774,7 +776,7 @@ function Hero({ lang }: { lang: Lang }) {
               {t.h1c}
             </h1>
 
-            <p className="text-[#888] text-base sm:text-lg leading-relaxed mb-8 max-w-md">
+            <p className="text-[#a0a0b8] text-base sm:text-lg leading-relaxed mb-8 max-w-md">
               {t.subtitle}{" "}
               <span className="text-white font-semibold">{t.subtitleBold}</span>
               {t.subtitleEnd}
@@ -791,7 +793,7 @@ function Hero({ lang }: { lang: Lang }) {
               </a>
               <a
                 href="#metodologia"
-                className="inline-flex items-center justify-center gap-2 font-semibold px-7 py-4 rounded-xl text-base transition-all duration-200 text-[#888] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 font-semibold px-7 py-4 rounded-xl text-base transition-all duration-200 text-[#a0a0b8] hover:text-white"
                 style={{ border: "1px solid #222", background: "transparent" }}
               >
                 {t.cta2}
@@ -799,11 +801,11 @@ function Hero({ lang }: { lang: Lang }) {
               </a>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-10" style={{ borderTop: "1px solid #1a1a1a" }}>
+            <div className="grid grid-cols-3 gap-6 mt-10 pt-10" style={{ borderTop: "1px solid #22223a" }}>
               {t.stats.map((s) => (
                 <div key={s.l}>
                   <div className="text-2xl sm:text-3xl font-black text-white">{s.v}</div>
-                  <div className="text-[#555] text-xs mt-1 leading-snug">{s.l}</div>
+                  <div className="text-[#7070a0] text-xs mt-1 leading-snug">{s.l}</div>
                 </div>
               ))}
             </div>
@@ -829,7 +831,7 @@ function Services({ lang }: { lang: Lang }) {
   const t = T[lang].services;
 
   return (
-    <section id="servicos" style={{ background: "#0d0d0d", borderTop: "1px solid #161616" }}>
+    <section id="servicos" style={{ background: "#111220", borderTop: "1px solid #1e1e32" }}>
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 md:py-28">
         <div className="mb-14 reveal">
           <p className="text-[#0000ff] text-[11px] font-bold uppercase tracking-[0.2em] mb-3">{t.label}</p>
@@ -849,13 +851,13 @@ function Services({ lang }: { lang: Lang }) {
             <div
               key={s.n}
               className="reveal rounded-2xl p-6 transition-all duration-200 cursor-default"
-              style={{ background: "#111", border: "1px solid #1e1e1e", transitionDelay: `${(i + 1) * 50}ms` }}
+              style={{ background: "#191928", border: "1px solid #2a2a42", transitionDelay: `${(i + 1) * 50}ms` }}
               onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#333"; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#1e1e1e"; }}
             >
               <span className="text-[#0000ff] text-[10px] font-black uppercase tracking-[0.22em] block mb-4">{s.n}</span>
               <h3 className="text-white text-[15px] font-bold mb-2 leading-snug">{s.title}</h3>
-              <p className="text-[#666] text-sm leading-relaxed">{s.desc}</p>
+              <p className="text-[#8888a0] text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -870,7 +872,7 @@ function Methodology({ lang }: { lang: Lang }) {
   const t = T[lang].methodology;
 
   return (
-    <section id="metodologia" style={{ background: "#0a0a0a", borderTop: "1px solid #161616" }}>
+    <section id="metodologia" style={{ background: "#0d0e17", borderTop: "1px solid #1e1e32" }}>
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 md:py-28">
         <div className="mb-14 reveal">
           <p className="text-[#0000ff] text-[11px] font-bold uppercase tracking-[0.2em] mb-3">{t.label}</p>
@@ -930,7 +932,7 @@ function Process({ lang }: { lang: Lang }) {
   const t = T[lang].process;
 
   return (
-    <section id="processo" style={{ background: "#0d0d0d", borderTop: "1px solid #161616" }}>
+    <section id="processo" style={{ background: "#111220", borderTop: "1px solid #1e1e32" }}>
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 md:py-28">
         <div className="mb-14 reveal">
           <p className="text-[#0000ff] text-[11px] font-bold uppercase tracking-[0.2em] mb-3">{t.label}</p>
@@ -950,11 +952,11 @@ function Process({ lang }: { lang: Lang }) {
                 )}
               </div>
               <h3 className="text-white text-lg font-bold mb-3">{s.title}</h3>
-              <p className="text-[#666] text-sm leading-relaxed mb-5">{s.desc}</p>
+              <p className="text-[#8888a0] text-sm leading-relaxed mb-5">{s.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {s.tags.map((tag) => (
                   <span key={tag} className="text-[11px] font-semibold px-3 py-1.5 rounded-lg"
-                    style={{ background: "#161616", color: "#0066ff", border: "1px solid #1e1e1e" }}>
+                    style={{ background: "#1e1e32", color: "#0066ff", border: "1px solid #2a2a42" }}>
                     {tag}
                   </span>
                 ))}
@@ -973,7 +975,7 @@ function Maturity({ lang }: { lang: Lang }) {
   const t = T[lang].maturity;
 
   return (
-    <section id="maturidade" style={{ background: "#0a0a0a", borderTop: "1px solid #161616" }}>
+    <section id="maturidade" style={{ background: "#0d0e17", borderTop: "1px solid #1e1e32" }}>
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 md:py-28">
         <div className="mb-14 reveal">
           <p className="text-[#0000ff] text-[11px] font-bold uppercase tracking-[0.2em] mb-3">{t.label}</p>
@@ -1000,11 +1002,11 @@ function Maturity({ lang }: { lang: Lang }) {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-5 mt-8 pt-6" style={{ borderTop: "1px solid #161616" }}>
+        <div className="flex flex-wrap gap-5 mt-8 pt-6" style={{ borderTop: "1px solid #1e1e32" }}>
           {t.legend.map((x) => (
             <div key={x.s} className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full" style={{ background: x.c }} />
-              <span className="text-[#555] text-xs font-medium">{x.s}</span>
+              <span className="text-[#7070a0] text-xs font-medium">{x.s}</span>
             </div>
           ))}
         </div>
@@ -1019,7 +1021,7 @@ function Benefits({ lang }: { lang: Lang }) {
   const t = T[lang].benefits;
 
   return (
-    <section style={{ background: "#0d0d0d", borderTop: "1px solid #161616" }}>
+    <section style={{ background: "#111220", borderTop: "1px solid #1e1e32" }}>
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
           <div>
@@ -1036,7 +1038,7 @@ function Benefits({ lang }: { lang: Lang }) {
                     style={{ background: "#0000ff" }}>
                     <IconCheck />
                   </div>
-                  <span className="text-[#888] text-sm leading-relaxed">{b}</span>
+                  <span className="text-[#a0a0b8] text-sm leading-relaxed">{b}</span>
                 </li>
               ))}
             </ul>
@@ -1052,7 +1054,7 @@ function Benefits({ lang }: { lang: Lang }) {
                     {i + 1}
                   </div>
                   <div className="flex-1 px-4 py-2.5 rounded-xl text-sm font-medium text-[#aaa]"
-                    style={{ background: "#111", border: "1px solid #1e1e1e" }}>
+                    style={{ background: "#191928", border: "1px solid #2a2a42" }}>
                     {step}
                   </div>
                 </div>
@@ -1105,7 +1107,7 @@ function Contact({ lang }: { lang: Lang }) {
   ];
 
   return (
-    <section id="contato" style={{ background: "#0a0a0a", borderTop: "1px solid #161616" }}>
+    <section id="contato" style={{ background: "#0d0e17", borderTop: "1px solid #1e1e32" }}>
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
@@ -1120,7 +1122,7 @@ function Contact({ lang }: { lang: Lang }) {
               <br />
               {t.headingD}
             </h2>
-            <p className="text-[#666] text-base leading-relaxed mb-10">
+            <p className="text-[#8888a0] text-base leading-relaxed mb-10">
               {lang === "pt" && "Entre em contacto com nossa equipe para iniciar a transformação digital da sua empresa."}
               {lang === "en" && "Contact our team to start your company's digital transformation journey."}
               {lang === "es" && "Contacte a nuestro equipo para iniciar la transformación digital de su empresa."}
@@ -1133,21 +1135,21 @@ function Contact({ lang }: { lang: Lang }) {
                     style={{ background: "#0000ff" }}>
                     {item.icon}
                   </div>
-                  <span className="text-[#888] text-sm">{item.label}</span>
+                  <span className="text-[#a0a0b8] text-sm">{item.label}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-12 pt-8" style={{ borderTop: "1px solid #1a1a1a" }}>
+            <div className="mt-12 pt-8" style={{ borderTop: "1px solid #22223a" }}>
               <div className="inline-flex items-center gap-4 rounded-2xl px-5 py-4"
-                style={{ background: "#111", border: "1px solid #1e1e1e" }}>
+                style={{ background: "#191928", border: "1px solid #2a2a42" }}>
                 <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 text-white font-black text-base"
                   style={{ background: "#0000ff" }}>
                   G
                 </div>
                 <div>
                   <p className="text-white font-bold text-sm">Gerson Alves</p>
-                  <p className="text-[#555] text-xs">
+                  <p className="text-[#7070a0] text-xs">
                     {lang === "pt" && "CEO & Fundador • NextPlatform"}
                     {lang === "en" && "CEO & Founder • NextPlatform"}
                     {lang === "es" && "CEO & Fundador • NextPlatform"}
@@ -1159,7 +1161,7 @@ function Contact({ lang }: { lang: Lang }) {
 
           {/* Right — form */}
           <div className="reveal" style={{ transitionDelay: "100ms" }}>
-            <div className="rounded-2xl p-8" style={{ background: "#0d0d0d", border: "1px solid #1e1e1e" }}>
+            <div className="rounded-2xl p-8" style={{ background: "#111220", border: "1px solid #2a2a42" }}>
               {state === "success" ? (
                 <div className="text-center py-10">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-white"
@@ -1172,28 +1174,28 @@ function Contact({ lang }: { lang: Lang }) {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[#555] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.name}</label>
+                      <label className="block text-[#7070a0] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.name}</label>
                       <input type="text" required value={fields.name} onChange={set("name")} placeholder={f.namePh} className={inputCls} />
                     </div>
                     <div>
-                      <label className="block text-[#555] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.company}</label>
+                      <label className="block text-[#7070a0] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.company}</label>
                       <input type="text" required value={fields.company} onChange={set("company")} placeholder={f.companyPh} className={inputCls} />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[#555] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.email}</label>
+                      <label className="block text-[#7070a0] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.email}</label>
                       <input type="email" required value={fields.email} onChange={set("email")} placeholder={f.emailPh} className={inputCls} />
                     </div>
                     <div>
-                      <label className="block text-[#555] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.role}</label>
+                      <label className="block text-[#7070a0] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.role}</label>
                       <input type="text" value={fields.role} onChange={set("role")} placeholder={f.rolePh} className={inputCls} />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[#555] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.message}</label>
+                    <label className="block text-[#7070a0] text-[11px] font-semibold uppercase tracking-wider mb-2">{f.message}</label>
                     <textarea
                       rows={4}
                       value={fields.message}
@@ -1224,17 +1226,17 @@ function Contact({ lang }: { lang: Lang }) {
 
         {/* Footer */}
         <div className="mt-20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderTop: "1px solid #161616" }}>
+          style={{ borderTop: "1px solid #1e1e32" }}>
           <a href="#" className="flex items-center gap-2.5">
             <LogoMark className="w-6 h-4 text-[#0000ff]" />
             <span className="text-white font-bold text-[15px]">
-              Next<span className="text-[#444]">Platform</span>
+              Next<span className="text-[#6060a0]">Platform</span>
             </span>
           </a>
           <p className="text-[#333] text-xs">© {new Date().getFullYear()} NextPlatform. {t.footer.copy}</p>
           <div className="flex gap-5">
             {t.footer.links.map((l) => (
-              <a key={l.label} href={l.href} className="text-[#444] hover:text-[#888] text-xs transition-colors">
+              <a key={l.label} href={l.href} className="text-[#6060a0] hover:text-[#a0a0b8] text-xs transition-colors">
                 {l.label}
               </a>
             ))}
