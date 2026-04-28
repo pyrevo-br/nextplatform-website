@@ -236,10 +236,10 @@ function Services() {
           {SERVICES.map((s, i) => (
             <div
               key={s.n}
-              className={`reveal group relative rounded-2xl p-6 sm:p-7 cursor-default transition-all duration-300 border
+              className={`reveal group relative rounded-2xl p-6 sm:p-7 cursor-default transition-all duration-300
                 ${i === 0
-                  ? "bg-[#0000ff] border-[#0000ff] sm:col-span-2 lg:col-span-1"
-                  : "bg-white border-transparent hover:border-[#0000ff]/20 hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)] hover:-translate-y-0.5"
+                  ? "bg-[#0000ff] sm:col-span-2 lg:col-span-1"
+                  : "bg-white border border-[#e8e8e8] hover:border-[#0000ff] hover:shadow-[0_4px_24px_rgba(0,0,255,0.08)] hover:-translate-y-0.5"
                 }`}
             >
               <span className={`text-[10px] font-black uppercase tracking-[0.2em] block mb-4 ${i === 0 ? "text-white/50" : "text-[#0000ff]"}`}>
@@ -248,7 +248,7 @@ function Services() {
               <h3 className={`text-[15px] font-black mb-2.5 leading-snug ${i === 0 ? "text-white" : "text-[#0a0a0a]"}`}>
                 {s.title}
               </h3>
-              <p className={`text-sm leading-relaxed ${i === 0 ? "text-white/65" : "text-[#0a0a0a]/50"}`}>
+              <p className={`text-sm leading-relaxed ${i === 0 ? "text-blue-100" : "text-[#666]"}`}>
                 {s.desc}
               </p>
             </div>
@@ -296,7 +296,7 @@ function Methodology() {
             <div
               key={lv.tag}
               className={`reveal relative overflow-hidden rounded-2xl p-7 sm:p-8 border transition-transform duration-300 hover:scale-[1.01]
-                ${lv.highlight ? "bg-[#0000ff] border-[#0000ff]" : "bg-white/[0.04] border-white/10"}`}
+                ${lv.highlight ? "bg-[#0000ff] border-[#0000ff]" : "bg-[#141414] border-[#2a2a2a]"}`}
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               <Arrows className="absolute -right-4 -bottom-2 w-24 h-16 text-white/[0.06]" />
@@ -368,14 +368,14 @@ function Process() {
                   <span className="text-white font-black text-base sm:text-lg">{s.n}</span>
                 </div>
                 {i < STEPS.length - 1 && (
-                  <div className="hidden sm:block flex-1 h-px bg-[#0000ff]/20" />
+                  <div className="hidden sm:block flex-1 h-px" style={{ background: "rgba(0,0,255,0.18)" }} />
                 )}
               </div>
               <h3 className="text-lg sm:text-xl font-black text-[#0a0a0a] mb-3">{s.title}</h3>
-              <p className="text-[#0a0a0a]/50 text-sm leading-relaxed mb-5">{s.desc}</p>
+              <p className="text-[#666] text-sm leading-relaxed mb-5">{s.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {s.tags.map((t) => (
-                  <span key={t} className="text-[11px] font-semibold bg-[#0000ff]/8 text-[#0000ff] px-2.5 py-1 rounded-lg">
+                  <span key={t} className="text-[11px] font-semibold bg-blue-50 text-[#0000ff] border border-blue-100 px-2.5 py-1 rounded-lg">
                     {t}
                   </span>
                 ))}
@@ -391,13 +391,13 @@ function Process() {
 // ─── Maturity ─────────────────────────────────────────────────────────────────
 
 const MAT = [
-  { n: 0, label: "Inconsciente",         state: "FRÁGIL",     border: "border-red-400/50",    bg: "bg-red-400/8",    txt: "text-red-400"    },
-  { n: 1, label: "Focado em Times",      state: "FRÁGIL",     border: "border-red-400/50",    bg: "bg-red-400/8",    txt: "text-red-400"    },
-  { n: 2, label: "Orientado ao Cliente", state: "RESILIENTE", border: "border-amber-400/50",  bg: "bg-amber-400/8",  txt: "text-amber-400"  },
-  { n: 3, label: "Ajustado ao Propósito",state: "RESILIENTE", border: "border-amber-400/50",  bg: "bg-amber-400/8",  txt: "text-amber-400"  },
-  { n: 4, label: "Riscos Protegidos",    state: "ROBUSTO",    border: "border-green-400/60",  bg: "bg-green-400/8",  txt: "text-green-400"  },
-  { n: 5, label: "Líder de Mercado",     state: "ANTIFRÁGIL", border: "border-[#0000ff]/70",  bg: "bg-[#0000ff]/8",  txt: "text-[#0000ff]"  },
-  { n: 6, label: "Feita para Durar",     state: "ANTIFRÁGIL", border: "border-[#0000ff]",     bg: "bg-[#0000ff]/12", txt: "text-[#0000ff]"  },
+  { n: 0, label: "Inconsciente",          state: "FRÁGIL",     color: "#f87171", bgAlpha: 0.10, txt: "text-red-400"   },
+  { n: 1, label: "Focado em Times",       state: "FRÁGIL",     color: "#f87171", bgAlpha: 0.10, txt: "text-red-400"   },
+  { n: 2, label: "Orientado ao Cliente",  state: "RESILIENTE", color: "#fbbf24", bgAlpha: 0.10, txt: "text-amber-400" },
+  { n: 3, label: "Ajustado ao Propósito", state: "RESILIENTE", color: "#fbbf24", bgAlpha: 0.10, txt: "text-amber-400" },
+  { n: 4, label: "Riscos Protegidos",     state: "ROBUSTO",    color: "#4ade80", bgAlpha: 0.10, txt: "text-green-400" },
+  { n: 5, label: "Líder de Mercado",      state: "ANTIFRÁGIL", color: "#0000ff", bgAlpha: 0.12, txt: "text-[#0000ff]" },
+  { n: 6, label: "Feita para Durar",      state: "ANTIFRÁGIL", color: "#0000ff", bgAlpha: 0.18, txt: "text-[#0000ff]" },
 ];
 
 function Maturity() {
@@ -417,22 +417,29 @@ function Maturity() {
         <div className="reveal h-1 w-full rounded-full mb-6 bg-gradient-to-r from-red-400 via-amber-400 via-green-400 to-[#0000ff] opacity-30" />
 
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-3">
-          {MAT.map((m, i) => (
-            <div
-              key={m.n}
-              className={`reveal border ${m.border} ${m.bg} rounded-2xl p-4 sm:p-5 text-center transition-transform duration-300 hover:scale-[1.04] cursor-default`}
-              style={{ transitionDelay: `${i * 50}ms` }}
-            >
-              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 ${m.border} flex items-center justify-center mx-auto mb-3`}>
-                <span className="text-lg font-black text-white">{m.n}</span>
+          {MAT.map((m, i) => {
+            const bg = `rgba(${parseInt(m.color.slice(1,3),16)},${parseInt(m.color.slice(3,5),16)},${parseInt(m.color.slice(5,7),16)},${m.bgAlpha})`;
+            const bd = `rgba(${parseInt(m.color.slice(1,3),16)},${parseInt(m.color.slice(3,5),16)},${parseInt(m.color.slice(5,7),16)},0.45)`;
+            return (
+              <div
+                key={m.n}
+                className="reveal rounded-2xl p-4 sm:p-5 text-center transition-transform duration-300 hover:scale-[1.04] cursor-default border"
+                style={{ background: bg, borderColor: bd, transitionDelay: `${i * 50}ms` }}
+              >
+                <div
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center mx-auto mb-3"
+                  style={{ borderColor: bd }}
+                >
+                  <span className="text-lg font-black text-white">{m.n}</span>
+                </div>
+                <div className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider mb-1 ${m.txt}`}>{m.state}</div>
+                <div className="text-white text-[11px] sm:text-xs font-semibold leading-tight">{m.label}</div>
               </div>
-              <div className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider mb-1 ${m.txt}`}>{m.state}</div>
-              <div className="text-white text-[11px] sm:text-xs font-semibold leading-tight">{m.label}</div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <div className="flex flex-wrap gap-4 sm:gap-6 mt-8 pt-6 border-t border-white/[0.07]">
+        <div className="flex flex-wrap gap-4 sm:gap-6 mt-8 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
           {[
             { s: "FRÁGIL",     c: "bg-red-400" },
             { s: "RESILIENTE", c: "bg-amber-400" },
@@ -441,7 +448,7 @@ function Maturity() {
           ].map((x) => (
             <div key={x.s} className="flex items-center gap-2">
               <span className={`w-2 h-2 rounded-full ${x.c}`} />
-              <span className="text-white/35 text-xs font-medium">{x.s}</span>
+              <span className="text-[#666] text-xs font-medium">{x.s}</span>
             </div>
           ))}
         </div>
